@@ -3,7 +3,6 @@ try:
     import pandas as pd
     import requests
     import base64
-    from selenium import webdriver
     from keys import api_key, api_key_secret, bearer_token
         
 except ModuleNotFoundError:
@@ -37,7 +36,7 @@ if __name__ == "__main__":
     search_params = {
         'q': 'Zelenskyy',
         'result_type': 'recent',
-        'count': 10
+        'count': 1
     }
     
     search_url = '{}1.1/search/tweets.json'.format(base_url)
