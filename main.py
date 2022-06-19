@@ -1,45 +1,42 @@
 try:
-    from bs4 import BeautifulSoup
+    from scrape import scrape
+    import json
     import pandas as pd
-    import requests
-    import base64
-    from keys import api_key, api_key_secret, bearer_token
-        
+    from io import StringIO
+    import matplotlib as plt
+
+    
 except ModuleNotFoundError:
     print("Please download dependencies from requirement.txt")
 except Exception as ex:
     print(ex)
 
+def storeScrape(jsonResponse):
+    filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv'
+    try:
+        df = pd.read_csv(filepath, names=('created_at','id','favorite_count', 'retweet_count','text'), header=0)
+    except:
+        df = pd.DataFrame()
+        print("CSV didn't exist, created new file to store data")
+    
+    keys = {'created_at','id','favorite_count', 'retweet_count','text'}
+    for tweet in jsonResponse:
+        cleaned_tweet = {key: tweet[key] for key in tweet.keys() & keys}
+        df = df.append(cleaned_tweet, ignore_index=True, sort=False)
+        df = df.reindex(df.columns, axis=1)
+    df.to_csv(r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv')
+    
+    return df
+
 if __name__ == "__main__":
-    key = '{}:{}'.format(api_key, api_key_secret).encode('ascii')
-    b64_encoded_key = base64.b64encode(key)
-    b64_encoded_key = b64_encoded_key.decode('ascii')
+    #twitter_handle = "ZelenskyyUa";
+    #count = 200;
+    #jsonResponse = scrape(twitter_handle, count);
+    #df = storeScrape(jsonResponse)
+    #df.head()
+    filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv'
+    df = pd.read_csv(filepath, names=('created_at','id','favorite_count', 'retweet_count','text'), header=0)
+    df.plot(kind='scatter',x='created_at',y='favorite_count',color='red')
+    plt.show()
     
-    base_url = 'https://api.twitter.com/'
-    auth_url = '{}oauth2/token'.format(base_url)
-    
-    auth_headers = {
-        'Authorization': 'Basic {}'.format(b64_encoded_key),
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    }
-    
-    auth_data = {
-        'grant_type': 'client_credentials'
-    }
-    auth_resp = requests.post(auth_url, headers=auth_headers, data=auth_data)
-    
-    access_token = auth_resp.json()['access_token']
-    search_headers = {
-    'Authorization': 'Bearer {}'.format(access_token)    
-    }
-    
-    search_params = {
-        'q': 'Zelenskyy',
-        'result_type': 'recent',
-        'count': 1
-    }
-    
-    search_url = '{}1.1/search/tweets.json'.format(base_url)
-    
-    search_resp = requests.get(search_url, headers=search_headers, params=search_params)
-    tweet_data = search_resp.json()
+
