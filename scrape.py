@@ -36,3 +36,23 @@ def scrape(user_id, count):
     params = get_params()
     json_response = connect_to_endpoint(url, params)
     return json_response
+
+def storeScrape(jsonResponse):
+    filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv'
+    try:
+        df = pd.read_csv(filepath, names=('created_at','favorite_count','id', 'retweet_count','text'), header=0)
+    except:
+        df = pd.DataFrame()
+        print('CSV didn\'t exist, created new file to store data')
+    keys = {'created_at','favorite_count','id', 'retweet_count','text'}
+    for tweet in jsonResponse:
+        cleaned_tweet = {key: tweet[key] for key in tweet.keys() & keys}
+        if cleaned_tweet not in df.values:
+            df = df.append(cleaned_tweet, ignore_index=True, sort=False)
+            df = df.reindex(df.columns, axis=1)
+    df.drop_duplicates(inplace = True)
+
+    df['created_at'] = pd.to_datetime(df['created_at'])
+    df = df.sort_values(by='created_at')
+    df.to_csv(r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv')
+    return df
