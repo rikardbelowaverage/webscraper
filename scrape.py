@@ -37,8 +37,7 @@ def scrape(user_id, count):
     json_response = connect_to_endpoint(url, params)
     return json_response
 
-def storeScrape(jsonResponse):
-    filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv'
+def storeScrape(jsonResponse, filepath):
     try:
         df = pd.read_csv(filepath, names=('created_at','favorite_count','id', 'retweet_count','text'), header=0)
     except:
