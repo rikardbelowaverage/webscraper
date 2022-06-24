@@ -2,6 +2,7 @@ try:
     from scrape import storeScrape
     from scrape import scrape
     from plot_likes_over_time import plot
+    from gui import startGui
     import json
     import pandas as pd
     from io import StringIO
@@ -15,6 +16,7 @@ except Exception as ex:
 
 
 if __name__ == '__main__':
+    startGui()
     twitter_handle = 'ZelenskyyUa';
     count = 200;
     filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv'
@@ -22,6 +24,7 @@ if __name__ == '__main__':
     jsonResponse = scrape(twitter_handle, count);
     df = storeScrape(jsonResponse, filepath)
     plot(filepath)
+    
     
 
    
