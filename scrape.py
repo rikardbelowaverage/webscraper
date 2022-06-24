@@ -50,9 +50,8 @@ def storeScrape(jsonResponse):
         if cleaned_tweet not in df.values:
             df = df.append(cleaned_tweet, ignore_index=True, sort=False)
             df = df.reindex(df.columns, axis=1)
-    df.drop_duplicates(inplace = True)
-
     df['created_at'] = pd.to_datetime(df['created_at'])
     df = df.sort_values(by='created_at')
+    df.drop_duplicates(subset=['text'],keep='first', inplace=True, ignore_index=True)
     df.to_csv(r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv')
     return df
