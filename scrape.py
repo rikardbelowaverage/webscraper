@@ -52,5 +52,5 @@ def storeScrape(jsonResponse, filepath):
     df['created_at'] = pd.to_datetime(df['created_at'])
     df = df.sort_values(by='created_at')
     df.drop_duplicates(subset=['text'],keep='first', inplace=True, ignore_index=True)
-    df.to_csv(r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\df.csv')
+    df.to_csv(filepath)
     return df
