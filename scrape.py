@@ -22,7 +22,7 @@ def get_params():
 
 def connect_to_endpoint(url, params):
     response = requests.request("GET", url, auth=bearer_oauth, params=params)
-    print(response.status_code)
+    print(f"HTTP Response : {response.status_code}")
     if response.status_code != 200:
         raise Exception(
             "Request returned an error: {} {}".format(
