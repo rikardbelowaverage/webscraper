@@ -13,16 +13,3 @@ except Exception as ex:
 
 if __name__ == '__main__':
     startGui()
-    #print("test")
-    #twitter_handle, filepath = startGui()
-    #count = 200
-    #jsonResponse = scrape(twitter_handle, count)
-    #df = storeScrape(jsonResponse, filepath)
-    #plot(filepath,twitter_handle)
-    
-
-    
-    #filepath = r'C:\Users\rikar\Documents\Skola\KAU\Projekt\dataframe\{handle}.csv'.format(handle=twitter_handle.lower())
-    #jsonResponse = scrape(twitter_handle, count);
-    #df = storeScrape(jsonResponse, filepath)
-    
