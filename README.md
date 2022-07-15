@@ -19,7 +19,8 @@ I have an interest in data analysis and its opportunities. Therefore I decided t
 6. Graphical User Interface(GUI): For ease of use it should be possible to interact using a GUI.
 
 ### Steps:
-1. User inputs a twitter-handle.
+1. User inputs a twitter handle.
 2. url is generated.
-3. HTTP request created to that url.
-4. 
+3. HTTP request made to the generated url
+4. The data from the request is looped through and stored in a pandas dataframe.
+5. User can see a plot of likes over time for the chosen twitter handle.
