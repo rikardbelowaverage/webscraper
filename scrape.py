@@ -53,4 +53,5 @@ def storeScrape(jsonResponse, filepath):
     df = df.sort_values(by='created_at')
     df.drop_duplicates(subset=['text'],keep='first', inplace=True, ignore_index=True)
     df.to_csv(filepath)
+    print("Data stored")
     return df
