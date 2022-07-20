@@ -25,14 +25,16 @@ I have an interest in data analysis and its opportunities. Therefore I decided t
 4. The data from the request is looped through and stored in a pandas dataframe.
 5. User can see a plot of likes over time for the chosen twitter handle.
 
-### Prerequisites:
+### Packages:
 Following packages are needed to be able to run the code:
 pandas
 requests
 base64
 PyQt5
 Matplotlib
+### Prerequisites:
 Twitter developer account to be able to interact with the Twitter API. For more information, see https://developer.twitter.com/en.
 
 ### Installation:
-This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python version are compatible. 
+This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python versios are compatible. The IDE and packages were run from Anaconda. There can be some difficulties with this as I had trouble getting the debugger to work in Spyder 5.1.5. 
+
