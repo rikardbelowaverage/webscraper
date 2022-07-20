@@ -36,5 +36,5 @@ Matplotlib</br>
 Twitter developer account to be able to interact with the Twitter API. For more information, see https://developer.twitter.com/en.
 
 ### Installation:
-This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python versios are compatible. The IDE and packages were run from Anaconda. There can be some difficulties with this as I had trouble getting the debugger to work in Spyder 5.1.5. 
-
+This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python versios are compatible. The IDE and packages were run from Anaconda. There can be some difficulties with this as I had trouble getting the debugger to work in Spyder 5.1.5.
+You'll need the API-key to send these type of requests to twitter, it only took a couple of days to receive it. Anyhow, if you're eager to start I'd suggest with getting that account setup. 
