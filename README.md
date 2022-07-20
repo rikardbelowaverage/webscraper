@@ -32,6 +32,7 @@ requests
 base64
 PyQt5
 Matplotlib
+Twitter developer account to be able to interact with the Twitter API. For more information, see https://developer.twitter.com/en.
 
 ### Installation:
 This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python version are compatible. 
