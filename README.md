@@ -34,4 +34,4 @@ PyQt5
 Matplotlib
 
 ### Installation:
-This program has been developed and tested using Python 3.8. 
+This program has been developed and tested using Python 3.8.5. Should be possible to run somewhat different setup as long as the packages and python version are compatible. 
