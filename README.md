@@ -26,7 +26,7 @@ I have an interest in data analysis and its opportunities. Therefore I decided t
 5. User can see a plot of likes over time for the chosen twitter handle.
 
 ### Packages:
-Following packages are needed to be able to run the code:
+Following packages are needed to be able to run the code:</br>
 pandas</br>
 requests</br>
 base64</br>
