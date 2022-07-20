@@ -27,11 +27,11 @@ I have an interest in data analysis and its opportunities. Therefore I decided t
 
 ### Packages:
 Following packages are needed to be able to run the code:
-pandas
-requests
-base64
-PyQt5
-Matplotlib
+pandas</br>
+requests</br>
+base64</br>
+PyQt5</br>
+Matplotlib</br>
 ### Prerequisites:
 Twitter developer account to be able to interact with the Twitter API. For more information, see https://developer.twitter.com/en.
 
