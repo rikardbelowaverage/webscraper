@@ -19,6 +19,12 @@ def bearer_oauth(r):
 def get_params():
     return {"tweet.fields": "attachments"}
 
+def scrape(user_id, count):
+    url = create_url(count,user_id)
+    params = get_params()
+    json_response = connect_to_endpoint(url, params)
+    return json_response
+
 def connect_to_endpoint(url, params):
     response = requests.request("GET", url, auth=bearer_oauth, params=params)
     print(f"HTTP Response : {response.status_code}")
@@ -29,12 +35,6 @@ def connect_to_endpoint(url, params):
             )
         )
     return response.json()
-
-def scrape(user_id, count):
-    url = create_url(count,user_id)
-    params = get_params()
-    json_response = connect_to_endpoint(url, params)
-    return json_response
 
 def storeScrape(jsonResponse, filepath):
     try:
